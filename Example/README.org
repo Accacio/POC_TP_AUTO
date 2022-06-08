@@ -65,3 +65,13 @@ or by using the =prof.m= command
 #+begin_src matlab
 prof
 #+end_src
+
+Resulting on
+#+begin_example
+imageExample1_signed.png:
+02:42:46:72:24:24;2022-06-08T14:24:14,193538211+02:00
+imageExample_signed.png:
+02:42:46:72:24:24;2022-06-08T14:24:14,349715641+02:00
+#+end_example
+
+If we have a list of MAC addresses we can compare them

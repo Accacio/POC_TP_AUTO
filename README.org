@@ -25,7 +25,11 @@ A complete use case is described in [[file:Example/README.org]]
 - Watermark does not change expressively image
 ** Cons
 - Uses MATLAB's Image Processing toolbox
-- Teachers need to extract files from report
+- Teachers need to extract figures from report
+- Teachers need to compare MAC addresses and time
 * Improvements
 - make it independent of MATLAB
+- make it independent of MATLAB
 - Use another mean to verify images (maybe generate a qrcode?)
+- Verify automatically MAC addresses from a list
+- Verify automatically if date is valid
