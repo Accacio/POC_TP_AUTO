@@ -13,7 +13,7 @@ We deliver to the students the following files
 ** Student
 The students can plot their figures as usual and save the files as =.jpg= or =.png=
 
-#+begin_src matlab :tangle student.m :comments yes
+#+begin_src matlab :tangle student.m
 clear
 close all
 plot(1:10,((1:10)-5).^3)
@@ -25,13 +25,13 @@ close all
 #+end_src
 
 All images can then be signed in one command
-#+begin_src matlab :tangle student.m :tangle yes
+#+begin_src matlab :tangle student.m
 % Sign in one call
 % signImage imageExample.jpg imageExample1.jpg;
 #+end_src
 
 alternatively, we can provide a command to search for all images in folder and sign them all
-#+begin_src matlab student.m :tangle yes
+#+begin_src matlab :tangle student.m
 % sign all images in folder
 files=allFigs();
 signImage(files{:});
