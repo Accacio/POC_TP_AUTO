@@ -1,0 +1,67 @@
+#+title: Use case
+#+OPTIONS: toc:nil
+#+PROPERTY: header-args :comments yes :eval no
+#+latex_header:\definecolor{nord0}{HTML}{2E3440} \definecolor{nord1}{HTML}{3B4252} \definecolor{nord2}{HTML}{434C5E} \definecolor{nord3}{HTML}{4C566A} \definecolor{nord4}{HTML}{D8DEE9} \definecolor{nord5}{HTML}{E5E9F0} \definecolor{nord6}{HTML}{ECEFF4} \definecolor{nord7}{HTML}{8FBCBB} \definecolor{nord8}{HTML}{88C0D0} \definecolor{nord9}{HTML}{81A1C1} \definecolor{nord10}{HTML}{5E81AC} \definecolor{nord11}{HTML}{BF616A} \definecolor{nord12}{HTML}{D08770} \definecolor{nord13}{HTML}{EBCB8B} \definecolor{nord14}{HTML}{A3BE8C} \definecolor{nord15}{HTML}{B48EAD}
+#+latex_header: \lstset{basicstyle=\ttfamily\color{nord4},backgroundcolor=\color{nord1},keywordstyle=\color{nord10},identifierstyle=\color{nord7},commentstyle=\color{nord3!0.2!gray},flexiblecolumns=true,stringstyle=\color{nord14},breaklines=true,linewidth=\linewidth,xleftmargin=-1cm,showstringspaces=false,keepspaces=true,showtabs=true,tabsize=2}
+
+* Deliverables
+We deliver to the students the following files
+- allFigs.m :: search for all =.png= and =.jpg= images in directory
+- signImage.p :: Obscured version of signImage function
+
+* Step by step (little by little)
+** Student
+The students can plot their figures as usual and save the files as =.jpg= or =.png=
+
+#+begin_src matlab :tangle student.m :comments yes
+clear
+close all
+plot(1:10,((1:10)-5).^3)
+saveas(gcf,'imageExample.jpg');
+
+plot(1:10,((1:10)-5).^5+((1:10)-5).^3)
+saveas(gcf,'imageExample1.jpg');
+close all
+#+end_src
+
+All images can then be signed in one command
+#+begin_src matlab :tangle student.m :tangle yes
+% Sign in one call
+% signImage imageExample.jpg imageExample1.jpg;
+#+end_src
+
+alternatively, we can provide a command to search for all images in folder and sign them all
+#+begin_src matlab student.m :tangle yes
+% sign all images in folder
+files=allFigs();
+signImage(files{:});
+#+end_src
+
+Then the students can add their figures to their reports using MS Word or $\LaTeX$
+
+** Teacher
+*** Extracting files
+First we need to extract the figures from the report
+**** MS Word =.doc(x)=
+We can profit from =.doc(x)= documents being only a compressed =.zip= file.
+
+GNU+Linux/MacOS have a =unzip= command which can extract files. We use it to extract to a specif folder
+#+begin_src bash
+unzip -j exampleWord.docx "*.png" -d images_NOM1_NOM2
+#+end_src
+**** $\LaTeX$
+GNU+Linux/MacOS have a =pdfimages= command which can extract images from a =.pdf= file. We use it to extract with specif names
+#+begin_src bash
+pdfimages -j -png article.pdf images_NOM1_NOM2
+#+end_src
+
+*** Decrypting images
+In MATLAB we can now verify individually the images using our =verifyImage= command
+#+begin_src matlab
+verifyImage images_NOM1_NOM2-000.png
+#+end_src
+
+or by using the =prof.m= command
+#+begin_src matlab
+prof
+#+end_src

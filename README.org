@@ -1,10 +1,12 @@
 #+title: POC Image Anti-cheating
 #+OPTIONS: toc:nil
+#+latex_header:\definecolor{nord0}{HTML}{2E3440} \definecolor{nord1}{HTML}{3B4252} \definecolor{nord2}{HTML}{434C5E} \definecolor{nord3}{HTML}{4C566A} \definecolor{nord4}{HTML}{D8DEE9} \definecolor{nord5}{HTML}{E5E9F0} \definecolor{nord6}{HTML}{ECEFF4} \definecolor{nord7}{HTML}{8FBCBB} \definecolor{nord8}{HTML}{88C0D0} \definecolor{nord9}{HTML}{81A1C1} \definecolor{nord10}{HTML}{5E81AC} \definecolor{nord11}{HTML}{BF616A} \definecolor{nord12}{HTML}{D08770} \definecolor{nord13}{HTML}{EBCB8B} \definecolor{nord14}{HTML}{A3BE8C} \definecolor{nord15}{HTML}{B48EAD}
+#+latex_header: \lstset{basicstyle=\ttfamily\color{nord4},backgroundcolor=\color{nord1},keywordstyle=\color{nord10},identifierstyle=\color{nord7},commentstyle=\color{nord3!0.2!gray},flexiblecolumns=true,stringstyle=\color{nord14},breaklines=true,linewidth=\linewidth,xleftmargin=-1cm,showstringspaces=false,keepspaces=true,showtabs=true,tabsize=2}
 
-This is a proof of concept of using an anti-cheating devide based on watermark
+This is a proof of concept of using an anti-cheating device based on watermark
 
 * Principle
-We sign images with a watermark, that is, we choose a position in the image to change its pixels and saving some metadata, in this POC we choose the MAC address and the time and hour.
+We sign images with a watermark, that is, we choose a position in the image to change its pixels and save some metadata, in this POC we choose the MAC address and the time and hour.
 
 The file [[file:signImage.m][signImage.m]] has comments explaining each step
 
@@ -16,3 +18,14 @@ pcode signImage
 we can create a file signImage.p, which can be delivered with the TP subject.
 
 A complete use case is described in [[file:Example/README.org]]
+
+* Discussion
+** Pros
+- Students need to run a single command to sign their images
+- Watermark does not change expressively image
+** Cons
+- Uses MATLAB's Image Processing toolbox
+- Teachers need to extract files from report
+* Improvements
+- make it independent of MATLAB
+- Use another mean to verify images (maybe generate a qrcode?)
