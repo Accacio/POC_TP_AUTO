@@ -1,0 +1,18 @@
+#+title: POC Image Anti-cheating
+#+OPTIONS: toc:nil
+
+This is a proof of concept of using an anti-cheating devide based on watermark
+
+* Principle
+We sign images with a watermark, that is, we choose a position in the image to change its pixels and saving some metadata, in this POC we choose the MAC address and the time and hour.
+
+The file [[file:signImage.m][signImage.m]] has comments explaining each step
+
+* Creating a obscured function to deliver to students
+By running
+#+begin_src matlab
+pcode signImage
+#+end_src
+we can create a file signImage.p, which can be delivered with the TP subject.
+
+A complete use case is described in [[file:Example/README.org]]
